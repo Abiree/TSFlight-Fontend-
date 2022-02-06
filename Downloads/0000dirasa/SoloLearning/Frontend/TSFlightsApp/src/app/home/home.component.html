@@ -1,9 +1,48 @@
+<div class="big_container">
+    <div class="top_bar">
+        <h2>Find Flights</h2>
+      </div>
+<div class="container">
 
-<div *ngFor="let flight of flights" class="flight_results">
-    <div class="flight_number"> {{flight.flightNumber}}</div>
-    <div class="departs"> {{flight.depart | date}}</div>
-    <div class="arrives"> {{flight.arrive | date }}</div>
-    <div class="nonstop"> {{flight.nonstop}}</div>
+
+    <div class="search_pane"> 
+        <div class="search_box">
+          <select>
+            <option value="" disabled selected>From</option>
+            <option value="nyc" >New York</option>
+            <option value="london" >London</option>
+            <option value="lax" >Los Angeles</option>
+          </select>
+        </div>
+        <div class="search_box">
+          <select>
+            <option value="" disabled selected>To</option>
+            <option value="nyc" >New York</option>
+            <option value="london" >London</option>
+            <option value="lax" >Los Angeles</option>
+          </select>
+        </div>
+        <div class="search_box">
+          <button>Go</button>
+        </div>
+      </div>
+      
+       
     
-    
+    <div class="flight_pane"> 
+        <div class="flight_headers">
+            <div class="flight_number cell"> Flight # </div>
+            <div class="departs cell"> Departs </div>
+            <div class="arrives cell"> Arrives </div>
+            <div class="nonstop cell"> Nonstop </div>
+          </div>
+
+        <div *ngFor="let flight of flights" class="flight_results">
+            <div class="flight_number cell"> {{flight.flightNumber}}</div>
+            <div class="departs cell"> {{flight.depart | date: 'shortDate'}}</div>
+            <div class="arrives cell"> {{flight.arrive | date: 'shortDate' }}</div>
+            <div class="nonstop cell"> {{flight.nonstop}}</div>
+        </div> 
+    </div>  
+</div>
 </div>
