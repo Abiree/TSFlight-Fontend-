@@ -38,7 +38,7 @@
           </div>
 
         <div *ngFor="let flight of flights" class="flight_results">
-            <div class="flight_number cell"> {{flight.flightNumber}}</div>
+            <div class="flight_number cell"> {{flight.flightnumber}}</div>
             <div class="departs cell"> {{flight.depart | date: 'shortDate'}}</div>
             <div class="arrives cell"> {{flight.arrive | date: 'shortDate' }}</div>
             <div class="nonstop cell"> {{flight.nonstop}}</div>
