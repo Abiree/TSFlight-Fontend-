@@ -1,1 +1,18 @@
-<p>admin works!</p>
+<div class="admin_panel">
+    <h2>Add a Flight</h2>
+    <input type="text" [(ngModel)]="origin" placeholder="origin">
+    <input type="text" [(ngModel)]="destination" placeholder="destination">
+    <input type="number" [(ngModel)]="flightNumber" placeholder="flight number">
+    <div class="toright">
+        <span>depart:</span>
+         <input type="date" [(ngModel)]="depart">
+         <span>arrive:</span>   
+        <input type="date" [(ngModel)]="arrive">
+        
+    </div>
+    <div class="flx">
+    <span>nonstop:</span>   
+    <input type="checkbox" (click)="toggleNonStop()">
+</div>
+    <button (click)="sendFlight()">create flight</button>
+</div>

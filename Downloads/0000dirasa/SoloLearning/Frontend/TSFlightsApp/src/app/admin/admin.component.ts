@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Flight } from '../model/flight.model';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  origin:string="";
+  destination:string="";
+  flightNumber:number=0;
+  depart:Date=new Date();
+  arrive:Date=new Date();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+  toggleNonStop(){}
+  sendFlight(){}
 
 }
