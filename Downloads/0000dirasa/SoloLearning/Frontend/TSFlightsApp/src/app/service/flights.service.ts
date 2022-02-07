@@ -10,10 +10,15 @@ import { Observable } from 'rxjs';
 export class FlightsService {
 
 
+
   constructor(private http:HttpClient) { }
 
   getFlight():Observable<any>{
     return this.http.get('http://localhost:3000/flights/')
+  }
+
+  queryFlight(orig:string,dest:string):Observable<any>{
+    return this.http.get(`http://localhost:3000/flights/query/${orig}/${dest}`)
   }
 
   postFlight(flight:Flight){

@@ -7,23 +7,25 @@
 
     <div class="search_pane"> 
         <div class="search_box">
-          <select>
+          <select [(ngModel)]="selectedOrigin">
             <option value="" disabled selected>From</option>
-            <option value="nyc" >New York</option>
-            <option value="london" >London</option>
-            <option value="lax" >Los Angeles</option>
+            <option value="New York" >New York</option>
+            <option value="London" >London</option>
+            <option value="Los Angeles" >Los Angeles</option>
+            <option value="Miami" >Miami</option>
           </select>
         </div>
         <div class="search_box">
-          <select>
+          <select [(ngModel)]="selectedDestination">
             <option value="" disabled selected>To</option>
-            <option value="nyc" >New York</option>
-            <option value="london" >London</option>
-            <option value="lax" >Los Angeles</option>
+            <option value="New York" >New York</option>
+            <option value="London" >London</option>
+            <option value="Los Angeles" >Los Angeles</option>
+            <option value="Chicago" >Chicago</option>
           </select>
         </div>
         <div class="search_box">
-          <button>Go</button>
+          <button (click)="query()">Go</button>
         </div>
       </div>
       
