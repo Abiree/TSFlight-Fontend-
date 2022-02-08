@@ -45,6 +45,11 @@
     table {
         border-spacing: 7px;
         text-align: center;
+        @media screen and (max-width: 394px){
+         
+            border-spacing: 1px;
+           
+        }
       }
       td{white-space: nowrap;}
       input{
@@ -61,12 +66,25 @@
     align-items: center;
     justify-content: center;
     width: 80%;
+
  
     
     @media screen and (max-width: 500px){
         width: 90%;
     }
-    padding: 5px;
+    @media screen and (max-width: 402px){
+      width: 95%;
+       // width: 100%;
+        //padding: 5px;
+      
+    }
+    @media screen and (max-width: 348px){
+      width: 97%;
+       // width: 100%;
+        //padding: 5px;
+      
+    }
+    //padding: 5px;
     border-radius: 5px;
 
     .flightTable{
@@ -118,15 +136,35 @@
             input{max-width: 10px;font-size: 0.4em};
             font-size: 0.4em;
           }
-         
+
           @media screen and (max-width: 394px){
+            
             .date{
-                input{max-width: 30px;}
+                input{max-width: 70px;}
             }
             input{max-width: 7px;font-size: 0.3em};
             font-size: 0.3em;
-            
           }
+
+          @media screen and (max-width: 348px){
+            
+            .date{
+                input{max-width: 69px;}
+            }
+            input{max-width: 4px;font-size: 0.20em};
+            font-size: 0.2em;
+          }
+
+          @media screen and (max-width: 309px){
+           
+            .date{
+                input{max-width: 50px;}
+            }
+            input{max-width: 2px;font-size: 0.20em};
+            font-size: 0.2em;
+          }
+
+          
     }
 
     button.update{
