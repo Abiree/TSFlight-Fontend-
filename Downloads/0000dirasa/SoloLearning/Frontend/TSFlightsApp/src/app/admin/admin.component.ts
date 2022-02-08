@@ -19,17 +19,25 @@ export class AdminComponent implements OnInit {
   nonstop:boolean=false;
   flightList:Flight[]=[];
 
+  newdepart:Date=new Date();
+  newarrive:Date=new Date();
+
   constructor(private flightsservice: FlightsService) { }
 
   ngOnInit(): void {
+    this.refresh();
+   
+  }
+  refresh(){
     this.flightsservice.getFlight().subscribe(data=>{
       this.flightList=data;
     })
   }
+  //change check in checkbox when click it
   toggleNonStop(){
     this.nonstop = !this.nonstop;
   }
-
+//post fight
   sendFlight(){
     const flight:Flight={
       origin: this.origin,
@@ -41,16 +49,55 @@ export class AdminComponent implements OnInit {
     }
     this.flightsservice.postFlight(flight); 
   }
+//delete flight
+delete(flight:Flight){
+  if (window.confirm('Are you sure you want to delete this flight? ')){
+  this.flightsservice.deleteFlight(flight.id).subscribe(data=>{
+    if(data && data['affected']){
+      this.refresh();
+    }
+  });
+}
+}
 
+//update flight
   update(flight:Flight){
-    console.log(`This is what our new flight will look like:`, flight);
+    const fli:Flight={
+      id:flight.id,
+      origin: flight.origin,
+      destination: flight.destination,
+      flightnumber:flight.flightnumber,
+      depart:this.newdepart,
+      arrive:this.newarrive, 
+      nonstop:flight.nonstop
+    }
+    return this.flightsservice.updateFlight(fli).subscribe(data=>{
+      if(data && data['affected']){
+        this.refresh(); 
+      }
+    })
   };
 
-  getDate(date:Date){
-    
-    return new Date(date).toISOString().split('T')[0];
-    
-
+  //change depart value to update it after
+  onChangeDepart(value:string) {
+    this.newdepart = new Date(value);
+   
   }
+//change arrive value to update it after
+  onChangeArrive(value:string) {
+    this.newarrive = new Date(value);
+    
+  }
+//change nonstop value to update it after
+  toggleNonStopp(nonstop:boolean){
+    nonstop = !nonstop;
+    
+  }
+//change date to short format
+  getDate(date:Date){  
+    return new Date(date).toISOString().split('T')[0];
+  }
+
+  
 
 }

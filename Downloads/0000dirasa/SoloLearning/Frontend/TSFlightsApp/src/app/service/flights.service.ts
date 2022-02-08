@@ -27,6 +27,12 @@ export class FlightsService {
     });
   }
 
+  updateFlight(flight:Flight):Observable<any>{
+   
+    return this.http.patch(`http://localhost:3000/flights/${flight.id}`,flight)
+    
+  }
+
   getDest():Observable<any>{
     return this.http.get('http://localhost:3000/flights/cities/dest')
   }
@@ -35,8 +41,8 @@ export class FlightsService {
   }
 
 
-  deleteFlight(id:number){
-
+  deleteFlight(id:any):Observable<any>{
+    return this.http.delete(`http://localhost:3000/flights/${id}`)
   }
 
 }

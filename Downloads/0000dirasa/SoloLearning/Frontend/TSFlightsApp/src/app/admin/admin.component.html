@@ -34,11 +34,13 @@
             <td><input [(ngModel)]='flight.origin'></td>
             <td><input [(ngModel)]='flight.destination'></td>
             <td><input [(ngModel)]="flight.flightnumber"></td>
-            <td class="date"><input  type="date" [value]="getDate(flight.depart)" ></td>
-            <td class="date"><input  type="date" [value]="getDate(flight.arrive)" ></td>
-            <td class="check"><input type="checkbox" (click)="toggleNonStop()" [checked]=flight.nonstop></td>
+            <td class="date"><input  type="date" [ngModel]="getDate(flight.depart)"
+                (ngModelChange)="onChangeDepart($event)" ></td>
+            <td class="date"><input  type="date" [ngModel]="getDate(flight.arrive)"
+                (ngModelChange)="onChangeArrive($event)" ></td>
+            <td class="check"><input type="checkbox" [(ngModel)]="flight.nonstop" (click)="toggleNonStopp(flight.nonstop)" [checked]=flight.nonstop></td>
             <td><button class="update" (click)="update(flight)"><fa-icon [icon]="faEdit"style='color:#fcd7ce'></fa-icon></button></td>
-            <td><button class="delete"><fa-icon [icon]="faTrash" style='color:#162a35'></fa-icon></button></td>
+            <td><button class="delete" (click)="delete(flight)"><fa-icon [icon]="faTrash" style='color:#162a35'></fa-icon></button></td>
             
         </tr>
     </table>
