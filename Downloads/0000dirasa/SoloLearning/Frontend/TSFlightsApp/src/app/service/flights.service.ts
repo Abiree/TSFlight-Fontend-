@@ -27,6 +27,14 @@ export class FlightsService {
     });
   }
 
+  getDest():Observable<any>{
+    return this.http.get('http://localhost:3000/flights/cities/dest')
+  }
+  getOrigin():Observable<any>{
+    return this.http.get('http://localhost:3000/flights/cities/origin')
+  }
+
+
   deleteFlight(id:number){
 
   }

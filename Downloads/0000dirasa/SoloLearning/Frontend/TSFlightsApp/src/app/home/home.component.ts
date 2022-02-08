@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   flights:Flight[]=[];
   selectedOrigin: string="";
   selectedDestination: string="";
+  origins:any[]=[];
+  dests:any[]=[];
 
 
   constructor(private flightsService:FlightsService) { }
@@ -23,6 +25,13 @@ export class HomeComponent implements OnInit {
 
       
     });
+
+    this.flightsService.getOrigin().subscribe(data=>{
+      this.origins=data;
+    })
+    this.flightsService.getDest().subscribe(data=>{
+      this.dests=data;
+    })
 
 
   }

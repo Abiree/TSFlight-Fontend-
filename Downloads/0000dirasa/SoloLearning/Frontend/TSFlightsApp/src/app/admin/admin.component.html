@@ -16,3 +16,30 @@
 </div>
     <button (click)="sendFlight()">create flight</button>
 </div>
+
+<div class="editPanel">
+    <table class="flightTable">
+        <tr>
+            <td>origin</td>
+            <td>destination</td>
+            <td>flight #</td>
+            <td>depart</td>
+            <td>arrive</td>
+            <td>nonstop</td>
+            <td>update</td>
+            <td>delete</td>
+        </tr>
+        
+        <tr *ngFor="let flight of flightList; let i=index">
+            <td><input [(ngModel)]='flight.origin'></td>
+            <td><input [(ngModel)]='flight.destination'></td>
+            <td><input [(ngModel)]="flight.flightnumber"></td>
+            <td class="date"><input  type="date" [value]="getDate(flight.depart)" ></td>
+            <td class="date"><input  type="date" [value]="getDate(flight.arrive)" ></td>
+            <td class="check"><input type="checkbox" (click)="toggleNonStop()" [checked]=flight.nonstop></td>
+            <td><button class="update" (click)="update(flight)"><fa-icon [icon]="faEdit"style='color:#fcd7ce'></fa-icon></button></td>
+            <td><button class="delete"><fa-icon [icon]="faTrash" style='color:#162a35'></fa-icon></button></td>
+            
+        </tr>
+    </table>
+</div>

@@ -9,25 +9,14 @@
         <div class="search_box">
           <select [(ngModel)]="selectedOrigin">
             <option value="" disabled selected>From</option>
-            <option value="New York" >New York</option>
-            <option value="London" >London</option>
-            <option value="Los Angeles" >Los Angeles</option>
-            <option value="Chicago" >Chicago</option>
-            <option value="Miami" >Miami</option>
-            <option value="Rabat" >Rabat</option>
-            <option value="Tetouan" >Tetouan</option>
+            <option *ngFor="let origin of origins" value={{origin.origin}} >{{origin.origin}}</option>
+           
           </select>
         </div>
         <div class="search_box">
           <select [(ngModel)]="selectedDestination">
             <option value="" disabled selected>To</option>
-            <option value="New York" >New York</option>
-            <option value="London" >London</option>
-            <option value="Los Angeles" >Los Angeles</option>
-            <option value="Chicago" >Chicago</option>
-            <option value="Miami" >Miami</option>
-            <option value="Rabat" >Rabat</option>
-            <option value="Tetouan" >Tetouan</option>
+            <option *ngFor="let dest of dests" value={{dest.destination}} >{{dest.destination}}</option>
           </select>
         </div>
         <div class="search_box">
